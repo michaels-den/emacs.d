@@ -1,9 +1,10 @@
 ;;;;
-;; Packages
+
 ;;;;
 
 ;; Define package repositories
 (require 'package)
+
 (add-to-list 'package-archives
              '("tromey" . "http://tromey.com/elpa/") t)
 (add-to-list 'package-archives
@@ -66,14 +67,15 @@
     ;; project navigation
     projectile
 
-    ;; colorful parenthesis matching
-    rainbow-delimiters
+    ;; colorful parenthesis matching - outdated
+    ; rainbow-delimiters
 
     ;; edit html tags like sexps
     tagedit
 
     ;; git integration
     magit))
+
 
 ;; On OS X, an Emacs instance started from the graphical user
 ;; interface will have a different environment than a shell in a
@@ -115,7 +117,7 @@
 
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
-;(load "shell-integration.el")
+(load "shell-integration.el")
 
 ;; These customizations make it easier for you to navigate files,
 ;; switch buffers, and choose options from the minibuffer.
@@ -152,3 +154,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)

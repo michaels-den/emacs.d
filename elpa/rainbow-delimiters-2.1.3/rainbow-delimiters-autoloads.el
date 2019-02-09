@@ -25,11 +25,7 @@ Disable `rainbow-delimiters-mode'.
 
 \(fn)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rainbow-delimiters" '(#("rainbow-delimiters-" 0 19 (fontified nil)))))
-
-;;;***
-
-;;;### (autoloads nil nil ("rainbow-delimiters-pkg.el") (0 0 0 0))
+(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rainbow-delimiters" '("rainbow-delimiters-")))
 
 ;;;***
 
