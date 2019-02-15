@@ -73,6 +73,9 @@
     ;; edit html tags like sexps
     tagedit
 
+    ;; helm
+    helm
+
     ;; git integration
     magit))
 
@@ -110,7 +113,6 @@
 ;;;;
 ;; Customization
 ;;;;
-
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
@@ -147,7 +149,7 @@
  '(coffee-tab-width 2)
  '(package-selected-packages
    (quote
-    (magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
+    (helm magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -156,3 +158,46 @@
  )
 
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+(paredit-mode 1)
+(setq scroll-conservatively 10)
+(setq scroll-margin 4)
+
+;; helm setup
+
+(require 'helm)
+(require 'helm-config)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
+;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
+;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'projectile-find-file)
+
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;;(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-l") 'helm-mini)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-h a") 'helm-apropos)
+(setq helm-apropos-fuzzy-match t)
+(setq helm-semantic-fuzzy-match t
+      helm-imenu-fuzzy-match    t)
+
+(helm-autoresize-mode t)
+(defun pl/helm-alive-p ()
+  (if (boundp 'helm-alive-p)
+      (symbol-value 'helm-alive-p)))
+(helm-mode 1)
+
+
