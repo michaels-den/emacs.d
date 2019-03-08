@@ -4,16 +4,8 @@
 
 ;; Define package repositories
 (require 'package)
-
-(add-to-list 'package-archives
-             '("tromey" . "http://tromey.com/elpa/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
-(add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-(add-to-list 'package-pinned-packages '(magit . "melpa-stable") t)
 
 
 ;; Load and activate emacs packages. Do this first so that the
@@ -117,6 +109,9 @@
 ;; below, Emacs knows where to look for the corresponding file.
 (add-to-list 'load-path "~/.emacs.d/customizations")
 
+
+;; ffip
+(load "find-file-in-project.el")
 ;; Sets up exec-path-from-shell so that Emacs will use the correct
 ;; environment variables
 (load "shell-integration.el")
@@ -147,9 +142,12 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(custom-safe-themes
+   (quote
+    ("0c6fc5a9e8715e48fad672e0d25bca8047ebc5d172d90ccfdea4e526bb9edd66" default)))
  '(package-selected-packages
    (quote
-    (helm magit tagedit rainbow-delimiters projectile smex ido-completing-read+ cider clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
+    (helm-ag json-mode helm magit tagedit projectile smex ido-completing-read+ clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -173,13 +171,20 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "RET") 'newline-and-indent )
+(global-set-key (kbd "C-u") 'paredit-forward-slurp-sexp)
+(global-set-key (kbd "C-l") 'paredit-backward-slurp-sexp)
+(global-set-key (kbd "M-DEL") 'backward-kill-sexp)
+(global-set-key (kbd "C-x f") 'find-file-in-project)
+(global-set-key (kbd "C-x p") 'helm-do-ag-project-root)
+
 
 ;; (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action) ; rebind tab to run persistent action
 ;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal
 ;; (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 
 (global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x C-f") 'projectile-find-file)
+
 
 (setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
 
