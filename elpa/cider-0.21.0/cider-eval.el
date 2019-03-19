@@ -61,7 +61,7 @@
 (defconst cider-read-eval-buffer "*cider-read-eval*")
 (defconst cider-result-buffer "*cider-result*")
 
-(defcustom cider-show-error-buffer t
+(defcustom cider-show-error-buffer f
   "Control the popup behavior of cider stacktraces.
 The following values are possible t or 'always, 'except-in-repl,
 'only-in-repl.  Any other value, including nil, will cause the stacktrace
@@ -76,7 +76,7 @@ navigate to this buffer."
                  (const :tag "never" nil))
   :group 'cider)
 
-(defcustom cider-auto-jump-to-error t
+(defcustom cider-auto-jump-to-error f
   "Control the cursor jump behaviour in compilation error buffer.
 When non-nil automatically jump to error location during interactive
 compilation.  When set to 'errors-only, don't jump to warnings.
@@ -87,7 +87,7 @@ When set to nil, don't jump at all."
   :group 'cider
   :package-version '(cider . "0.7.0"))
 
-(defcustom cider-auto-select-error-buffer t
+(defcustom cider-auto-select-error-buffer f
   "Controls whether to auto-select the error popup buffer."
   :type 'boolean
   :group 'cider)
