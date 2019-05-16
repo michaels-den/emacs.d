@@ -5,7 +5,8 @@
 ;; Define package repositories
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/"))
+
 
 
 ;; Load and activate emacs packages. Do this first so that the
@@ -147,7 +148,7 @@
     ("0c6fc5a9e8715e48fad672e0d25bca8047ebc5d172d90ccfdea4e526bb9edd66" default)))
  '(package-selected-packages
    (quote
-    (helm-ag json-mode helm magit tagedit projectile smex ido-completing-read+ clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
+    (inf-ruby jdee helm-ag json-mode helm magit tagedit projectile smex ido-completing-read+ clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
