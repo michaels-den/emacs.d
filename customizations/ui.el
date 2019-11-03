@@ -4,6 +4,8 @@
 ;; a matter of preference and may require some fiddling to match your
 ;; preferences
 
+
+
 ;; Turn off the menu bar at the top of each frame because it's distracting
 (menu-bar-mode -1)
 
@@ -26,7 +28,7 @@
 ;; for a more technical explanation.
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tango-plus t)
+(load-theme 'tango t)
 
 ;; increase font size for better readability
 (set-face-attribute 'default nil :height 140)

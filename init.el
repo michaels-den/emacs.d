@@ -145,10 +145,10 @@
  '(coffee-tab-width 2)
  '(custom-safe-themes
    (quote
-    ("0c6fc5a9e8715e48fad672e0d25bca8047ebc5d172d90ccfdea4e526bb9edd66" default)))
+    ("9e54a6ac0051987b4296e9276eecc5dfb67fdcd620191ee553f40a9b6d943e78" "52588047a0fe3727e3cd8a90e76d7f078c9bd62c0b246324e557dfa5112e0d0c" "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" "0c6fc5a9e8715e48fad672e0d25bca8047ebc5d172d90ccfdea4e526bb9edd66" default)))
  '(package-selected-packages
    (quote
-    (inf-ruby jdee helm-ag json-mode helm magit tagedit projectile smex ido-completing-read+ clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
+    (ejson-mode inf-ruby jdee helm-ag json-mode helm magit tagedit projectile smex ido-completing-read+ clojure-mode-extra-font-locking clojure-mode paredit exec-path-from-shell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
