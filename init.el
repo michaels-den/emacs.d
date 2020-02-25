@@ -97,7 +97,7 @@
 ;;
 ;; (require 'yaml-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-;; 
+;;
 ;; Adding this code will make Emacs enter yaml mode whenever you open
 ;; a .yml file
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -210,3 +210,10 @@
 (helm-mode 1)
 
 
+;; fci mode
+(require 'fill-column-indicator)
+(define-globalized-minor-mode my-global-fci-mode fci-mode turn-on-fci-mode)
+(my-global-fci-mode 1)
+
+;; cleaning
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
